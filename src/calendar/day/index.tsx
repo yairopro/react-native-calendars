@@ -35,8 +35,8 @@ export const propTypes = {
 export default class Day extends Component<DayProps> {
   static displayName = 'Day';
 
-  static propTypes = dayPropTypes;
-  static _propTypes = dayPropTypes;
+  static propTypes = propTypes;
+  static _propTypes = propTypes;
 
   shouldComponentUpdate(nextProps: DayProps) {
     return shouldUpdate(this.props, nextProps, [
