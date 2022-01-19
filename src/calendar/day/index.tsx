@@ -24,16 +24,19 @@ export interface DayProps extends Omit<BasicDayProps, 'date'> {
   dayComponent?: React.ComponentType<DayProps & {date?: DateData}>;
 }
 
+export const propTypes = {
+  ...basicDayPropsTypes,
+  /** The day to render */
+  day: PropTypes.object,
+  /** Provide custom day rendering component */
+  dayComponent: PropTypes.any
+};
+
 export default class Day extends Component<DayProps> {
   static displayName = 'Day';
 
-  static propTypes = {
-    ...basicDayPropsTypes,
-    /** The day to render */
-    day: PropTypes.object,
-    /** Provide custom day rendering component */
-    dayComponent: PropTypes.any
-  };
+  static propTypes = dayPropTypes;
+  static _propTypes = dayPropTypes;
 
   shouldComponentUpdate(nextProps: DayProps) {
     return shouldUpdate(this.props, nextProps, [

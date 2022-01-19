@@ -16,7 +16,7 @@ export function shouldUpdate(props: any, newProps: any, paths: string[]) {
 }
 
 export function extractComponentProps(component: any, props: any, ignoreProps?: string[]) {
-  const componentPropTypes = component.propTypes;
+  const componentPropTypes = component.propTypes || component._propTypes;
   if (componentPropTypes) {
     const keys = Object.keys(componentPropTypes);
     const componentProps = omit(
